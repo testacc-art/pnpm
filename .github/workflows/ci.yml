@@ -28,7 +28,7 @@ jobs:
       uses: actions/checkout@v1
     - name: install pnpm and npm
       run: |
-        curl -L https://get.pnpm.io/v6.js | node - add --global pnpm@next npm@7
+        curl -L https://get.pnpm.io/v6.js | sudo node - add --global pnpm@next npm@7
     - name: Setup Node
       uses: jacobwgillespie/setup-node@cache-pnpm
       with:
@@ -40,9 +40,3 @@ jobs:
       run: pnpm install
     - name: Audit
       run: pnpm audit
-    - name: run tests (main)
-      if: github.ref == 'refs/heads/main'
-      run: pnpm run test-main
-    - name: run tests (branch)
-      if: github.ref != 'refs/heads/main'
-      run: pnpm run test-branch
