@@ -35,13 +35,13 @@ jobs:
       if: ${{ matrix.platform == 'windows-latest' }}
       run: |
         curl -L https://get.pnpm.io/v6.js | node - add --global pnpm@next npm@7
+    - name: checkout main
+      run: git branch -f main origin/main
     - name: Setup Node
       uses: jacobwgillespie/setup-node@cache-pnpm
       with:
         node-version: ${{ matrix.node }}
         cache: pnpm
-    - name: checkout main
-      run: git branch -f main origin/main
     - name: pnpm install
       run: pnpm install
     - name: Audit
