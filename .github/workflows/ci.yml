@@ -48,3 +48,11 @@ jobs:
       run: pnpm install
     - name: Audit
       run: pnpm audit
+      
+    - name: Check job
+      if: always()
+      run: |
+        echo ${{ job }}
+        echo ${{ build.result }}
+        echo ${{ build }}
+
