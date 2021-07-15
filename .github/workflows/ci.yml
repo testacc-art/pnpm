@@ -53,6 +53,5 @@ jobs:
       if: always()
       run: |
         echo ${{ job }}
-        echo ${{ build.result }}
-        echo ${{ build }}
+
 
