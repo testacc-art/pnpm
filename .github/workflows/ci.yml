@@ -53,5 +53,6 @@ jobs:
       if: always()
       run: |
         echo ${{ job.status }}
+        node -e "console.log(process.env)"
 
 
