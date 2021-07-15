@@ -31,10 +31,12 @@ jobs:
       if: ${{ matrix.platform != 'windows-latest' }}
       run: |
         curl -L https://get.pnpm.io/v6.js | sudo node - add --global pnpm@next npm@7
+        pnpm store path
     - name: install pnpm and npm for windows
       if: ${{ matrix.platform == 'windows-latest' }}
       run: |
         curl -L https://get.pnpm.io/v6.js | node - add --global pnpm@next npm@7
+        pnpm store path
     - name: checkout main
       run: git branch -f main origin/main
     - name: Setup Node
