@@ -52,6 +52,6 @@ jobs:
     - name: Check job
       if: always()
       run: |
-        echo ${{ job }}
+        echo ${{ console.dir(job) }}
 
 
